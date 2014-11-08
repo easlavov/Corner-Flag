@@ -141,6 +141,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
     </Reference>
+    <Reference Include="XMLSoccerCOM">
+      <HintPath>..\XmlSoccerCom\XMLSoccerCOM.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -256,6 +259,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CornerFlag.Common\CornerFlag.Common.csproj">
+      <Project>{59eb96af-f50d-40a8-852f-069ab6d5f820}</Project>
+      <Name>CornerFlag.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CornerFlag.Data.Contracts\CornerFlag.Data.Contracts.csproj">
       <Project>{011c1950-7c6a-4245-b239-3d0dab07b42b}</Project>
       <Name>CornerFlag.Data.Contracts</Name>
