@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using CornerFlag.Web.Models;
+using CornerFlag.Data.Models;
+using CornerFlag.Data;
 
 namespace CornerFlag.Web
 {

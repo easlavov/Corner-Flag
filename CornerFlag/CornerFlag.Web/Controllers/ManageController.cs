@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CornerFlag.Web.Models;
+using CornerFlag.Data.Models;
 
 namespace CornerFlag.Web.Controllers
 {

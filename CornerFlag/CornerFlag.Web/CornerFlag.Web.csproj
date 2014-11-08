@@ -175,7 +175,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -255,6 +254,16 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CornerFlag.Data.Models\CornerFlag.Data.Models.csproj">
+      <Project>{a8dd71c5-0f2c-402a-9288-a9b2c0e6a4e5}</Project>
+      <Name>CornerFlag.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CornerFlag.Data\CornerFlag.Data.csproj">
+      <Project>{9bac18cb-9319-4898-8ada-eabdab330e48}</Project>
+      <Name>CornerFlag.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using CornerFlag.Web.Models;
+using CornerFlag.Data.Models;
+using CornerFlag.Data;
 
 namespace CornerFlag.Web
 {
