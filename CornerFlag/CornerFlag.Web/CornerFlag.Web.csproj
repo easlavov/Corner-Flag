@@ -256,6 +256,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CornerFlag.Data.Contracts\CornerFlag.Data.Contracts.csproj">
+      <Project>{011c1950-7c6a-4245-b239-3d0dab07b42b}</Project>
+      <Name>CornerFlag.Data.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CornerFlag.Data.Models\CornerFlag.Data.Models.csproj">
       <Project>{a8dd71c5-0f2c-402a-9288-a9b2c0e6a4e5}</Project>
       <Name>CornerFlag.Data.Models</Name>
