@@ -2,10 +2,31 @@
     ViewBag.Title = "Home Page";
 }
 
-@model XMLSoccerCOM.Team
+@model IList<XMLSoccerCOM.Match>
 
-<div>
-    <h2>@Model.Name</h2>
-    <h3>@Model.Stadium</h3>
-    <h3>@Model.Country</h3>
+<h1>Home</h1>
+<div class="jumbotron">
+
+    <ul class="list-group">
+        @foreach (var match in Model)
+        {
+            <li class="list-group-item">
+                @string.Format("{0} {1}-{2} {3}", match.HomeTeam, match.HomeGoals, match.AwayGoals, match.AwayTeam)
+            </li>
+        }
+    </ul>
+
+    @*<div class="container">
+            <ul>
+                @foreach (var league in Model.Leagues)
+                {
+                    <li>
+                        <a href="~/leagues/@league.Id">
+                            @(league.Name + " " + league.Country)
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>*@
+
 </div>

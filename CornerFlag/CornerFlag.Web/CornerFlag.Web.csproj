@@ -179,6 +179,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -254,7 +255,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -276,6 +276,10 @@
     <ProjectReference Include="..\CornerFlag.Data\CornerFlag.Data.csproj">
       <Project>{9bac18cb-9319-4898-8ada-eabdab330e48}</Project>
       <Name>CornerFlag.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CornerFlag.SoccerData\CornerFlag.SoccerData.csproj">
+      <Project>{c3959d5c-f95d-4947-bd7d-29837f0a6bc3}</Project>
+      <Name>CornerFlag.SoccerData</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

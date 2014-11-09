@@ -1,20 +1,17 @@
-﻿using CornerFlag.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using XMLSoccerCOM;
-
-namespace CornerFlag.Web.Controllers
+﻿namespace CornerFlag.Web.Controllers
 {
+    using System.Web.Mvc;
+
+    using CornerFlag.Common;
+    using XMLSoccerCOM;
+
     public class BaseController : Controller
     {
+        protected Requester soccerData;
+
         public BaseController()
         {
-            this.SoccerData = new Requester(Constants.XmlSoccerApiKey);
+            this.soccerData = new Requester(Constants.XmlSoccerApiKey, true);
         }
-
-        protected Requester SoccerData { get; set; }
     }
 }

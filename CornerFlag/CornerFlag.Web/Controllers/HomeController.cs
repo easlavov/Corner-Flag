@@ -1,17 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace CornerFlag.Web.Controllers
+﻿namespace CornerFlag.Web.Controllers
 {
+    using CornerFlag.SoccerData;
+    using System;
+    using System.Linq;
+    using System.Web.Mvc;
+    using System.Web.UI;
+
     public class HomeController : BaseController
     {
+        [HttpGet]        
         public ActionResult Index()
         {
-            var team = this.SoccerData.GetTeam("Aberdeen");
-            return View(team);
+            //var leagues = this.SoccerData.GetAllLeagues();
+            // TODO: Dependency inversion
+            var liveScores = CachedSoccerData.GetLiveScoreByLeague(null);
+            
+            //var viewModel = new HomeViewModel
+            //{
+            //    TodayFixtures = todayMatches,
+            //    Leagues = leagues
+            //};
+            return View(liveScores);
         }
 
         public ActionResult About()

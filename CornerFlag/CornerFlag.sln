@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{E1772E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CornerFlag.Common", "CornerFlag.Common\CornerFlag.Common.csproj", "{59EB96AF-F50D-40A8-852F-069AB6D5F820}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CornerFlag.SoccerData", "CornerFlag.SoccerData\CornerFlag.SoccerData.csproj", "{C3959D5C-F95D-4947-BD7D-29837F0A6BC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{59EB96AF-F50D-40A8-852F-069AB6D5F820}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59EB96AF-F50D-40A8-852F-069AB6D5F820}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59EB96AF-F50D-40A8-852F-069AB6D5F820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3959D5C-F95D-4947-BD7D-29837F0A6BC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3959D5C-F95D-4947-BD7D-29837F0A6BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3959D5C-F95D-4947-BD7D-29837F0A6BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3959D5C-F95D-4947-BD7D-29837F0A6BC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,5 +64,6 @@ Global
 		{A8DD71C5-0F2C-402A-9288-A9B2C0E6A4E5} = {AEF15654-A04D-4B77-85D9-E72915DCBF8D}
 		{9BAC18CB-9319-4898-8ADA-EABDAB330E48} = {AEF15654-A04D-4B77-85D9-E72915DCBF8D}
 		{59EB96AF-F50D-40A8-852F-069AB6D5F820} = {E1772E98-C420-4FDF-8345-37F67D2F7482}
+		{C3959D5C-F95D-4947-BD7D-29837F0A6BC3} = {AEF15654-A04D-4B77-85D9-E72915DCBF8D}
 	EndGlobalSection
 EndGlobal
