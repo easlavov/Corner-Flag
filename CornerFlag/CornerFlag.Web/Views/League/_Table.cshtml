@@ -19,7 +19,16 @@
             {
                 <tr class="text-center">
                     <td>@counter</td>
-                    <td class="text-left">@team.Team</td>
+                    <td class="text-left">
+                        @Html.ActionLink(linkText: team.Team,
+                                actionName: "Details",
+                                controllerName: "Team",
+                                routeValues: new
+                                {
+                                    id = team.Team
+                                },
+                                htmlAttributes: null)
+                    </td>
                     <td>@team.Played</td>
                     <td>@team.Goals_For</td>
                     <td>@team.Goals_Against</td>

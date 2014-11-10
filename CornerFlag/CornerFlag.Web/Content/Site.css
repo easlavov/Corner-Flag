@@ -26,3 +26,11 @@ textarea {
 .alternate-color-table tr:nth-of-type(2n+1){
     background-color: aliceblue;
 }
+
+.large-text {
+    font-size:large;
+}
+
+.big-text {
+    font-size: xx-large;
+}

@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "TeamView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model XMLSoccerCOM.Team
+
+<div class="jumbotron">
+    <span class="big-text">@Model.Name</span>
+    <div class="btn-group pull-right">
+        <button id="btn-table" class="btn btn-info large-text">General</button>
+        <button id="btn-fixtures" class="btn btn-info large-text">Fixtures</button>
+        <button id="btn-players" class="btn btn-info large-text">Players</button>
+    </div>
+</div>
+
+<div class="container text-center">
+    <h2>@Model.Country</h2>
+    <h2>
+        <a href="@Model.HomePageURL">Home page</a>
+    </h2>
+    <h2>
+        Venue: @Model.Stadium
+    </h2>
+    <h2><a href="@Model.WIKILink">Wikipedia</a></h2>
+</div>

@@ -176,6 +176,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Leagues\LeagueController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Teams\TeamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -256,10 +257,10 @@
     <Content Include="Views\League\All.cshtml" />
     <Content Include="Views\League\Details.cshtml" />
     <Content Include="Views\League\_Table.cshtml" />
+    <Content Include="Views\Team\TeamView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Leagues\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

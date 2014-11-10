@@ -3,6 +3,12 @@
 }
 
 @model string
-
-<h2>Details for @Model</h2>
+<div class="jumbotron">
+    <span class="big-text">@Model</span>
+    <div class="btn-group pull-right">
+        <button id="btn-table" class="btn btn-info large-text">Table</button>
+        <button id="btn-fixtures" class="btn btn-info large-text">Fixtures</button>
+        <button id="btn-players" class="btn btn-info large-text">Players</button>
+    </div>
+</div>
 @Html.Action("Table", "League", Model)
