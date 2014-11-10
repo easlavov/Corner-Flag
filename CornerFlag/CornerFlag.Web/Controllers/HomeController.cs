@@ -13,7 +13,7 @@
         {
             //var leagues = this.SoccerData.GetAllLeagues();
             // TODO: Dependency inversion
-            var liveScores = CachedSoccerData.GetLiveScoreByLeague(null);
+            var liveScores = this.soccerData.GetLiveScoreByLeague(null);
             
             //var viewModel = new HomeViewModel
             //{

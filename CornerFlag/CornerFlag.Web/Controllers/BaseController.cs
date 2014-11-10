@@ -4,14 +4,15 @@
 
     using CornerFlag.Common;
     using XMLSoccerCOM;
+    using CornerFlag.SoccerData;
 
     public class BaseController : Controller
     {
-        protected Requester soccerData;
+        protected CachedSoccerData soccerData;
 
         public BaseController()
         {
-            this.soccerData = new Requester(Constants.XmlSoccerApiKey, true);
+            this.soccerData = new CachedSoccerData();
         }
     }
 }
