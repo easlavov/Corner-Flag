@@ -8,8 +8,13 @@ namespace CornerFlag.Web.Models
 {
     public class HomeViewModel
     {
-        public IEnumerable<Match> TodayFixtures { get; set; }
+        public HomeViewModel()
+        {
+            TopLeagues = new List<IList<TeamLeagueStanding>>();
+        }
 
-        public IEnumerable<League> Leagues { get; set; }
+        public IEnumerable<IGrouping<string, Match>> TodayFixtures { get; set; }
+
+        public IList<IList<TeamLeagueStanding>> TopLeagues { get; set; }
     }
 }

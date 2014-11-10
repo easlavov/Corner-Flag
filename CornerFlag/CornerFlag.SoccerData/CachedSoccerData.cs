@@ -23,7 +23,7 @@
 
         public CachedSoccerData()
         {
-            requester = new Requester(XML_SOCCER_API_KEY, true);
+            requester = new Requester(XML_SOCCER_API_KEY, true);            
         }
 
         //GetLiveScore: 25 seconds
@@ -57,7 +57,7 @@
         //GetOddsByFixtureMatchID: 3600 seconds
 
         //GetHistoricMatchesByLeagueAndSeason: 3600 seconds
-        public  IList<Match> GetHostoricMatchesByLeagueAndSeason(string league, int seasonStartYear)
+        public IList<Match> GetHostoricMatchesByLeagueAndSeason(string league, int seasonStartYear)
         {
             string key = MethodBase.GetCurrentMethod().Name + league + seasonStartYear;
             if (HttpContext.Current.Cache[key] == null)
@@ -78,7 +78,7 @@
         /// <param name="league">The name of the league. Set null if you want all teams returned.</param>
         /// <param name="seasonStartYear">The season start year.</param>
         /// <returns>A list of teams.</returns>
-        public  IList<Team> GetAllTeamsByLeagueAndSeason(string league, int seasonStartYear = 0)
+        public IList<Team> GetAllTeamsByLeagueAndSeason(string league, int seasonStartYear = 0)
         {
             string key = MethodBase.GetCurrentMethod().Name + league + seasonStartYear;
             if (HttpContext.Current.Cache[key] == null)
@@ -100,7 +100,7 @@
         }
 
         //GetAllLeagues: 3600 seconds
-        public  IList<League> GetAllLeagues()
+        public IList<League> GetAllLeagues()
         {
             string key = MethodBase.GetCurrentMethod().Name;
             if (HttpContext.Current.Cache[key] == null)
@@ -115,7 +115,7 @@
         }
 
         //All others: 300 seconds
-        public  IList<Group> GetAllGroupsByLeagueAndSeason(string league, int seasonStartYear = 0)
+        public IList<Group> GetAllGroupsByLeagueAndSeason(string league, int seasonStartYear = 0)
         {
             string key = MethodBase.GetCurrentMethod().Name + league + seasonStartYear;
             if (HttpContext.Current.Cache[key] == null)
@@ -127,7 +127,7 @@
             return HttpContext.Current.Cache[key] as List<Group>;
         }
 
-        public  IList<TeamLeagueStanding> GetCupStandingsByGroupId(int groupId)
+        public IList<TeamLeagueStanding> GetCupStandingsByGroupId(int groupId)
         {
             string key = MethodBase.GetCurrentMethod().Name + groupId;
             if (HttpContext.Current.Cache[key] == null)
@@ -139,7 +139,7 @@
             return HttpContext.Current.Cache[key] as List<TeamLeagueStanding>;
         }
 
-        public  IList<Match> GetFixturesByDateInterval(DateTime from, DateTime to)
+        public IList<Match> GetFixturesByDateInterval(DateTime from, DateTime to)
         {
             string key = MethodBase.GetCurrentMethod().Name + from.ToShortDateString() + to.ToShortDateString();
             if (HttpContext.Current.Cache[key] == null)
@@ -151,7 +151,7 @@
             return HttpContext.Current.Cache[key] as List<Match>;
         }
 
-        public  IList<Match> GetFixturesByDateIntervalAndLeague(DateTime from, DateTime to, string league)
+        public IList<Match> GetFixturesByDateIntervalAndLeague(DateTime from, DateTime to, string league)
         {
             string key = MethodBase.GetCurrentMethod().Name +
                          from.ToShortDateString() +
@@ -165,7 +165,7 @@
             return HttpContext.Current.Cache[key] as List<Match>;
         }
 
-        public  IList<Match> GetFixturesByDateIntervalAndTeam(DateTime from, DateTime to, string team)
+        public IList<Match> GetFixturesByDateIntervalAndTeam(DateTime from, DateTime to, string team)
         {
             string key = MethodBase.GetCurrentMethod().Name +
                          from.ToShortDateString() +
@@ -179,7 +179,7 @@
             return HttpContext.Current.Cache[key] as List<Match>;
         }
 
-        public  IList<Match> GetFixturesByLeagueAndSeason(string league, int seasonStartYear)
+        public IList<Match> GetFixturesByLeagueAndSeason(string league, int seasonStartYear)
         {
             string key = MethodBase.GetCurrentMethod().Name + league + seasonStartYear;
             if (HttpContext.Current.Cache[key] == null)
@@ -191,7 +191,7 @@
             return HttpContext.Current.Cache[key] as List<Match>;
         }
 
-        public  Match GetHistoricMatchByFixtureMatchID(int fixtureMatchId)
+        public Match GetHistoricMatchByFixtureMatchID(int fixtureMatchId)
         {
             string key = MethodBase.GetCurrentMethod().Name + fixtureMatchId;
             if (HttpContext.Current.Cache[key] == null)
@@ -203,7 +203,7 @@
             return HttpContext.Current.Cache[key] as Match;
         }
 
-        public  IList<Match> GetHistoricMatchesByLeagueAndDateInterval(DateTime from, DateTime to, string league)
+        public IList<Match> GetHistoricMatchesByLeagueAndDateInterval(DateTime from, DateTime to, string league)
         {
             string key = MethodBase.GetCurrentMethod().Name + from + to + league;
             if (HttpContext.Current.Cache[key] == null)
@@ -215,7 +215,7 @@
             return HttpContext.Current.Cache[key] as IList<Match>;
         }
 
-        public  IList<Match> GetHistoricMatchesByLeagueAndSeason(string league, int seasonStartYear)
+        public IList<Match> GetHistoricMatchesByLeagueAndSeason(string league, int seasonStartYear)
         {
             string key = MethodBase.GetCurrentMethod().Name + league + seasonStartYear;
             if (HttpContext.Current.Cache[key] == null)
@@ -227,7 +227,7 @@
             return HttpContext.Current.Cache[key] as IList<Match>;
         }
 
-        public  IList<Match> GetHistoricMatchesByTeamAndDateInterval(DateTime from, DateTime to, int teamId)
+        public IList<Match> GetHistoricMatchesByTeamAndDateInterval(DateTime from, DateTime to, int teamId)
         {
             string key = MethodBase.GetCurrentMethod().Name + from + to + teamId;
             if (HttpContext.Current.Cache[key] == null)
@@ -239,7 +239,7 @@
             return HttpContext.Current.Cache[key] as IList<Match>;
         }
 
-        public  IList<Match> GetHistoricMatchesByTeamsAndDateInterval(DateTime from, DateTime to, int teamId, int team2Id)
+        public IList<Match> GetHistoricMatchesByTeamsAndDateInterval(DateTime from, DateTime to, int teamId, int team2Id)
         {
             string key = MethodBase.GetCurrentMethod().Name + from + to + teamId;
             if (HttpContext.Current.Cache[key] == null)
@@ -251,7 +251,7 @@
             return HttpContext.Current.Cache[key] as IList<Match>;
         }
 
-        public  IList<TeamLeagueStanding> GetLeagueStandingsBySeason(string league, int seasonStartYear)
+        public IList<TeamLeagueStanding> GetLeagueStandingsBySeason(string league, int seasonStartYear)
         {
             string key = MethodBase.GetCurrentMethod().Name + league + seasonStartYear;
             if (HttpContext.Current.Cache[key] == null)
@@ -263,7 +263,7 @@
             return HttpContext.Current.Cache[key] as IList<TeamLeagueStanding>;
         }
 
-        public  Player GetPlayerById(int id)
+        public Player GetPlayerById(int id)
         {
             string key = MethodBase.GetCurrentMethod().Name + id;
             if (HttpContext.Current.Cache[key] == null)
@@ -275,7 +275,7 @@
             return HttpContext.Current.Cache[key] as Player;
         }
 
-        public  Team GetTeam(string teamName)
+        public Team GetTeam(string teamName)
         {
             string key = MethodBase.GetCurrentMethod().Name + teamName;
             if (HttpContext.Current.Cache[key] == null)
@@ -287,7 +287,7 @@
             return HttpContext.Current.Cache[key] as Team;
         }
 
-        public  IList<Topscorer> GetTopScorersByLeagueAndSeason(string league, int seasonStartYear)
+        public IList<Topscorer> GetTopScorersByLeagueAndSeason(string league, int seasonStartYear)
         {
             string key = MethodBase.GetCurrentMethod().Name + league + seasonStartYear;
             if (HttpContext.Current.Cache[key] == null)
@@ -299,7 +299,7 @@
             return HttpContext.Current.Cache[key] as IList<Topscorer>;
         }
 
-        private  void AddToCache(string key, object data, int seconds)
+        private void AddToCache(string key, object data, int seconds)
         {
             System.Web.HttpContext.Current.Cache.Add(
                 key: key,

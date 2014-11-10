@@ -2,31 +2,74 @@
     ViewBag.Title = "Home Page";
 }
 
-@model IList<XMLSoccerCOM.Match>
+@model CornerFlag.Web.Models.HomeViewModel
 
-<h1>Home</h1>
-<div class="jumbotron">
-
-    <ul class="list-group">
-        @foreach (var match in Model)
+<div class="container">
+    <div class="col-md-6 container">
+        <h2 class="panel-heading">Today's Games</h2>
+        @if (Model.TodayFixtures.Count() > 0)
         {
-            <li class="list-group-item">
-                @string.Format("{0} {1}-{2} {3}", match.HomeTeam, match.HomeGoals, match.AwayGoals, match.AwayTeam)
-            </li>
-        }
-    </ul>
-
-    @*<div class="container">
-            <ul>
-                @foreach (var league in Model.Leagues)
+            <ul class="list-group">
+                @foreach (var group in Model.TodayFixtures)
                 {
-                    <li>
-                        <a href="~/leagues/@league.Id">
-                            @(league.Name + " " + league.Country)
-                        </a>
+                    <li class="list-group-item">
+                        <h3 class="panel-heading">
+                            <a href="~/Leagues/@group.First().League">@group.First().League</a>
+                        </h3>
+                        <ul class="list-group">
+                            @foreach (var game in group)
+                            {
+                                <li class="list-group-item">
+                                    <a href="~/teams/@game.HomeTeam_Id">@game.HomeTeam</a>
+                                    <a href="~/games/@game.Id">@string.Format("{0} - {1}", game.HomeGoals, game.AwayGoals)</a>
+                                    <a href="~/teams/@game.AwayTeam_Id">@game.AwayTeam</a>
+                                </li>
+                            }
+                        </ul>
+
                     </li>
                 }
             </ul>
-        </div>*@
+        }
+        else
+        {
+            <h3>There are no games scheduled for today!</h3>
 
+        }
+    </div>
+
+    <div class="col-md-6 container">
+        <h2 class="panel-heading">Top Leagues Standings</h2>
+        @foreach (var league in Model.TopLeagues)
+        {
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Team</th>
+                            <th>For</th>
+                            <th>Against</th>
+                            <th>Diff</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < 6; i++)
+                        {
+                            <tr>
+                                <td>@(i + 1)</td>
+                                <td><a href="~/teams/@league[i].Team_Id">@league[i].Team</a></td>
+                                <td>@league[i].Goals_For</td>
+                                <td>@league[i].Goals_Against</td>
+                                <td>@league[i].Goal_Difference</td>
+                                <td>@league[i].Points</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+    </div>
 </div>

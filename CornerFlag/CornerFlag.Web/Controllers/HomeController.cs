@@ -1,26 +1,29 @@
 ﻿namespace CornerFlag.Web.Controllers
 {
     using CornerFlag.SoccerData;
+    using CornerFlag.Web.Models;
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
     using System.Web.UI;
+    using XMLSoccerCOM;
 
     public class HomeController : BaseController
     {
         [HttpGet]        
         public ActionResult Index()
         {
-            //var leagues = this.SoccerData.GetAllLeagues();
-            // TODO: Dependency inversion
-            var liveScores = this.soccerData.GetLiveScoreByLeague(null);
-            
-            //var viewModel = new HomeViewModel
-            //{
-            //    TodayFixtures = todayMatches,
-            //    Leagues = leagues
-            //};
-            return View(liveScores);
+            var homeViewModel = new HomeViewModel();
+            homeViewModel.TodayFixtures = MockedSoccerData.MatchListRandom().OrderByDescending(m => m.Date).GroupBy(m => m.League);
+            //homeViewModel.TodayFixtures = this.soccerData.GetLiveScoreByLeague(null).OrderByDescending(m => m.Date).GroupBy(m => m.League);
+            homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
+            homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
+            homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
+            homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
+            homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
+            homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
+            return View(homeViewModel);
         }
 
         public ActionResult About()
