@@ -64,6 +64,49 @@ namespace CornerFlag.SoccerData
             return leagueStandings;
         }
 
+        public static IList<League> GetAllLeagues()
+        {
+            var leagues = new List<League>();
+            leagues.Add(new League
+            {
+                Name = "English Premier League",
+                Country = "England",
+                Id = 1
+            });
+            leagues.Add(new League
+            {
+                Name = "English League Championship",
+                Country = "England",
+                Id = 2
+            });
+            leagues.Add(new League
+            {
+                Name = "Scottish Premier League",
+                Country = "Scotland",
+                Id = 3
+            });
+            leagues.Add(new League
+            {
+                Name = "Bundesliga",
+                Country = "Germany",
+                Id = 4
+            });
+            leagues.Add(new League
+            {
+                Name = "Serie A",
+                Country = "Italy",
+                Id = 5
+            });
+            leagues.Add(new League
+            {
+                Name = "Ligue 1",
+                Country = "France",
+                Id = 7
+            });
+
+            return leagues;
+        }
+
         private static string GetRandomLeague()
         {
             var index = rndm.Next(0, leagues.Length);

@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "Details";
+}
+
+@model string
+
+<h2>Details for @Model</h2>
+@Html.Action("Table", "League", Model)

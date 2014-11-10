@@ -14,7 +14,14 @@
                 {
                     <li class="list-group-item">
                         <h3 class="panel-heading">
-                            <a href="~/Leagues/@group.First().League">@group.First().League</a>
+                            @Html.ActionLink(linkText: group.First().League,
+                                actionName: "Details",
+                                controllerName: "League",
+                                routeValues: new
+                                {
+                                    id = group.First().League
+                                },
+                                htmlAttributes: null)
                         </h3>
                         <ul class="list-group">
                             @foreach (var game in group)
@@ -42,7 +49,7 @@
         <h2 class="panel-heading">Top Leagues Standings</h2>
         @foreach (var league in Model.TopLeagues)
         {
-            <div>
+            <div>                
                 <table class="table">
                     <thead>
                         <tr>
