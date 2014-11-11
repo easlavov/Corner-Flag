@@ -20,14 +20,7 @@
                 <tr class="text-center">
                     <td>@counter</td>
                     <td class="text-left">
-                        @Html.ActionLink(linkText: team.Team,
-                                actionName: "Details",
-                                controllerName: "Team",
-                                routeValues: new
-                                {
-                                    id = team.Team
-                                },
-                                htmlAttributes: null)
+                        <a href="~/Teams/@team.Team_Id">@team.Team</a>
                     </td>
                     <td>@team.Played</td>
                     <td>@team.Goals_For</td>

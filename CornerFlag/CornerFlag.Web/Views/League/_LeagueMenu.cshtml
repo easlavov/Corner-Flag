@@ -1,0 +1,8 @@
+﻿@model CornerFlag.Web.Models.LeagueDetailsViewModel
+<div class="jumbotron">
+    <h2>@Model.League.Name</h2>
+    <div class="btn-group pull-right">
+        <a href="~/Leagues/@Model.League.Id" class="btn btn-info large-text">Table</a>
+        <a href="~/Leagues/@Model.League.Id/Fixtures" class="btn btn-info large-text">Fixtures</a>
+    </div>
+</div>

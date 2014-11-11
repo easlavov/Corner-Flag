@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
     using System.Reflection;
     using System.Text;
@@ -23,7 +24,7 @@
 
         public CachedSoccerData()
         {
-            requester = new Requester(XML_SOCCER_API_KEY, true);            
+            requester = new Requester(XML_SOCCER_API_KEY, false);
         }
 
         //GetLiveScore: 25 seconds
@@ -263,6 +264,18 @@
             return HttpContext.Current.Cache[key] as IList<TeamLeagueStanding>;
         }
 
+        public IList<Player> GetPlayersById(string id)
+        {
+            string key = MethodBase.GetCurrentMethod().Name + id;
+            if (HttpContext.Current.Cache[key] == null)
+            {
+                var info = requester.GetPlayerById(id);
+                AddToCache(key, info, MEDIUM_TIME_INTERVAL);
+            }
+
+            return HttpContext.Current.Cache[key] as IList<Player>;
+        }
+
         public Player GetPlayerById(int id)
         {
             string key = MethodBase.GetCurrentMethod().Name + id;
@@ -278,6 +291,7 @@
         public Team GetTeam(string teamName)
         {
             string key = MethodBase.GetCurrentMethod().Name + teamName;
+            Debug.WriteLine(key);
             if (HttpContext.Current.Cache[key] == null)
             {
                 var info = requester.GetTeam(teamName);
@@ -301,7 +315,7 @@
 
         private void AddToCache(string key, object data, int seconds)
         {
-            System.Web.HttpContext.Current.Cache.Add(
+            HttpContext.Current.Cache.Add(
                 key: key,
                 value: data,
                 dependencies: null,

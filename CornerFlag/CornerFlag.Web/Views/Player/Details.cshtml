@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model XMLSoccerCOM.Player
+
+@Html.Partial("_PlayerMenu", Model)
+<div class="container">
+    <h2>@Model.Nationality</h2>
+    <h2>@Model.Position</h2>
+    <h2>Number: @Model.PlayerNumber</h2>
+    <h2>Weight: @Model.Weight</h2>
+    <h2>Height: @Model.Height</h2>
+</div>

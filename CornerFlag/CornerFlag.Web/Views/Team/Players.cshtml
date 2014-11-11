@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = Model.Team.Name + " - Players";
+}
+
+@model CornerFlag.Web.Models.TeamPlayersViewModel
+@Html.Partial("_TeamMenu", Model.Team)
+<div class="container text-center">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-center">Num.</th>
+                <th class="text-left">Name</th>
+                <th class="text-center">Position</th>
+                <th class="text-center">Age</th>
+                <th class="text-center">Details</th>
+            </tr>
+        </thead>
+
+        <tbody class ="alternate-color-table">
+            @foreach (var player in Model.Players)
+            {
+                <tr>
+                    <td class="text-center">@player.PlayerNumber</td>
+                    <td class="text-left">@player.Name</td>
+                    <td class="text-center">@player.Position</td>
+                    <td class="text-center">@(DateTime.Now.Year - player.DateOfBirth.Value.Year)</td>
+                    <td class="text-center">
+                        <a href="~/Players/@player.Id" class="btn btn-info">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

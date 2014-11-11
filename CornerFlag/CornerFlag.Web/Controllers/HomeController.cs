@@ -15,14 +15,18 @@
         public ActionResult Index()
         {
             var homeViewModel = new HomeViewModel();
-            homeViewModel.TodayFixtures = MockedSoccerData.MatchListRandom().OrderByDescending(m => m.Date).GroupBy(m => m.League);
+            homeViewModel.TodayFixtures = this.soccerData.GetLiveScoreByLeague(null).OrderByDescending(m => m.Date).GroupBy(m => m.League);
+            //homeViewModel.TodayFixtures = MockedSoccerData.MatchListRandom().OrderByDescending(m => m.Date).GroupBy(m => m.League);
             //homeViewModel.TodayFixtures = this.soccerData.GetLiveScoreByLeague(null).OrderByDescending(m => m.Date).GroupBy(m => m.League);
-            homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
-            homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
-            homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
-            homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
-            homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
-            homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
+            //homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
+            //homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
+            //homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
+            //homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
+            //homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
+            //homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
+
+            homeViewModel.TopLeagues.Add(this.soccerData.GetLeagueStandingsBySeason("3", 2014));
+
             return View(homeViewModel);
         }
 

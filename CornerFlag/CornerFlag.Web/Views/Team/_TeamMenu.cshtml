@@ -1,0 +1,9 @@
+﻿@model XMLSoccerCOM.Team
+<div class="jumbotron">
+    <h2>@Model.Name</h2>
+    <div class="btn-group pull-right">
+        <a href="~/Teams/@Model.Team_Id" class="btn btn-info large-text">General</a>
+        <a href="~/Teams/@Model.Team_Id/Fixtures" class="btn btn-info large-text">Fixtures</a>
+        <a href="~/Teams/@Model.Team_Id/Players" class="btn btn-info large-text">Players</a>
+    </div>
+</div>
