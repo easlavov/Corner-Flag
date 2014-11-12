@@ -3,9 +3,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section styles {
+    @Styles.Render("~/Content/kendo")
+}
+
 @model CornerFlag.Web.Models.FixturesViewModel
 
 @Html.Partial("_TeamMenu", Model.TeamName)
 <div class="container">
-    @* Kendo Grid here *@
+    @Html.Kendo().Calendar().Name("Calendar")
 </div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/kendo")
+}
