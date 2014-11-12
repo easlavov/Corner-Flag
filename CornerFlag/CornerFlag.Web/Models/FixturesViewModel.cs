@@ -10,6 +10,6 @@ namespace CornerFlag.Web.Models
     {
         public string TeamName { get; set; }
 
-        public IEnumerable<Match> Fixtures { get; set; }
+        public IQueryable<Match> Fixtures { get; set; }
     }
 }

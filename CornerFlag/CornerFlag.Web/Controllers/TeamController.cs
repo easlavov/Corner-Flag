@@ -23,7 +23,7 @@ namespace CornerFlag.Web.Controllers
             var to = DateTime.Now;
             var from = to.AddYears(-1);
             var fixtures = this.soccerData
-                               .GetFixturesByDateIntervalAndTeam(from, to, id);
+                               .GetFixturesByDateIntervalAndTeam(from, to, id).AsQueryable();
             var model = new FixturesViewModel
             {
                 TeamName = id,

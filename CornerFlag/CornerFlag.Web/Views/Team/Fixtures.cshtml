@@ -11,7 +11,20 @@
 
 @Html.Partial("_TeamMenu", Model.TeamName)
 <div class="container">
-    @Html.Kendo().Calendar().Name("Calendar")
+    @(Html.Kendo()
+        .Grid(Model.Fixtures)
+        .Name("FixturesGrid")
+        .Columns(c =>
+        {
+            c.Bound(f => f.League);
+            c.Bound(f => f.Date);
+            c.Bound(f => f.HomeTeam);
+            c.Bound(f => f.HomeGoals);
+            c.Bound(f => f.AwayGoals);
+            c.Bound(f => f.AwayTeam);
+        })
+        .Sortable()
+        .Pageable(p => p.PageSizes(new int[] { 5, 10, 15, 20 })))
 </div>
 
 @section scripts {
