@@ -1,9 +1,9 @@
 ﻿@{
-    ViewBag.Title = Model.Team.Name + " - Players";
+    ViewBag.Title = "Players";
 }
 
 @model CornerFlag.Web.Models.TeamPlayersViewModel
-@Html.Partial("_TeamMenu", Model.Team)
+@Html.Partial("_TeamMenu", Model.TeamName)
 <div class="container text-center">
     <table class="table">
         <thead>

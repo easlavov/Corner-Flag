@@ -27,9 +27,9 @@
                             @foreach (var game in group)
                             {
                                 <li class="list-group-item">
-                                    <a href="~/teams/@game.HomeTeam_Id">@game.HomeTeam</a>
+                                    <a href="~/teams/@game.HomeTeam">@game.HomeTeam</a>
                                     <a href="~/games/@game.Id">@string.Format("{0} - {1}", game.HomeGoals, game.AwayGoals)</a>
-                                    <a href="~/teams/@game.AwayTeam_Id">@game.AwayTeam</a>
+                                    <a href="~/teams/@game.AwayTeam">@game.AwayTeam</a>
                                 </li>
                             }
                         </ul>
@@ -66,7 +66,7 @@
                         {
                             <tr>
                                 <td>@(i + 1)</td>
-                                <td><a href="~/teams/@league[i].Team_Id">@league[i].Team</a></td>
+                                <td><a href="~/teams/@league[i].Team">@league[i].Team</a></td>
                                 <td>@league[i].Goals_For</td>
                                 <td>@league[i].Goals_Against</td>
                                 <td>@league[i].Goal_Difference</td>

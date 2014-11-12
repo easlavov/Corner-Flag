@@ -19,13 +19,23 @@ namespace CornerFlag.Web.Controllers
 
         public ActionResult Fixtures(string id)
         {
-            return View();
+            // Getting last years fixtures to ensure a populated list
+            var to = DateTime.Now;
+            var from = to.AddYears(-1);
+            var fixtures = this.soccerData
+                               .GetFixturesByDateIntervalAndTeam(from, to, id);
+            var model = new FixturesViewModel
+            {
+                TeamName = id,
+                Fixtures = fixtures
+            };
+            return View(model);
         }
 
         public ActionResult Players(string id)
         {
             var model = new TeamPlayersViewModel();
-            model.Team = this.soccerData.GetTeam(id);
+            model.TeamName = id;
             model.Players = this.soccerData.GetPlayersById(id);
             return View(model);
         }

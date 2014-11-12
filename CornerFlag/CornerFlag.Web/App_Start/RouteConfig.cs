@@ -22,7 +22,7 @@ namespace CornerFlag.Web
             routes.MapRoute(
                 name: "Teams",
                 url: "Teams/{id}/{action}",
-                defaults: new { controller = "Team", action = "Details" }
+                defaults: new { controller = "Team", action = "Fixtures" }
             );
 
             routes.MapRoute(

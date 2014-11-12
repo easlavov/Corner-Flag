@@ -6,10 +6,10 @@ using XMLSoccerCOM;
 
 namespace CornerFlag.Web.Models
 {
-    public class TeamPlayersViewModel
+    public class FixturesViewModel
     {
         public string TeamName { get; set; }
 
-        public IEnumerable<Player> Players { get; set; }
+        public IEnumerable<Match> Fixtures { get; set; }
     }
 }
