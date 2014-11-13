@@ -52,7 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="CornerFlagData.cs" />
+    <Compile Include="CornerFlagDbContext.cs" />
+    <Compile Include="ICornerFlagData.cs" />
+    <Compile Include="ICornerFlagDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -8,18 +8,20 @@
     using CornerFlag.Data.Migrations;
     using System;
     using CornerFlag.Data.Contracts.Models;
+    using CornerFlag.Data.Models.Entities;
+    using CornerFlag.Data.Models.People;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class CornerFlagDbContext : IdentityDbContext<ApplicationUser> , ICornerFlagDbContext
     {
-        public ApplicationDbContext()
+        public CornerFlagDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<CornerFlagDbContext, Configuration>());
         }
 
-        public static ApplicationDbContext Create()
+        public static CornerFlagDbContext Create()
         {
-            return new ApplicationDbContext();
+            return new CornerFlagDbContext();
         }
 
         public override int SaveChanges()
@@ -69,5 +71,37 @@
         //        entry.State = EntityState.Modified;
         //    }
         //}
+
+
+        public virtual IDbSet<Country> Countries { get; set; }
+
+        public virtual IDbSet<Stadium> Stadiums { get; set; }
+
+        public virtual IDbSet<Match> Games { get; set; }
+
+        public virtual IDbSet<Player> Players { get; set; }
+
+        public virtual IDbSet<Team> Teams { get; set; }
+
+        public virtual IDbSet<Club> Clubs { get; set; }
+
+        public virtual IDbSet<Competition> Competitions { get; set; }
+
+        public virtual IDbSet<Round> Rounds { get; set; }
+
+        public virtual IDbSet<Season> Seasons { get; set; }
+
+        public new DbContext DbContext
+        {
+            get
+            {
+                return this;
+            }
+        }
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
+        }
     }
 }

@@ -1,10 +1,10 @@
 ﻿namespace CornerFlag.Data.Contracts.Repository
 {
+    using System;
     using System.Linq;
     using System.Data.Entity;
 
     using CornerFlag.Data.Contracts.Models;
-    using System;
 
     public class DeletableEntityRepository<T> : GenericRepository<T>, IDeletableEntityRepository<T>
         where T : class, IDeletableEntity

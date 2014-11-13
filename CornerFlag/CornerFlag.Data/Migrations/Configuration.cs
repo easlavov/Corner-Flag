@@ -7,7 +7,7 @@ namespace CornerFlag.Data.Migrations
 
     using CornerFlag.Data;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<CornerFlagDbContext>
     {
         public Configuration()
         {
@@ -15,7 +15,7 @@ namespace CornerFlag.Data.Migrations
             this.AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(ApplicationDbContext context)
+        protected override void Seed(CornerFlagDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
