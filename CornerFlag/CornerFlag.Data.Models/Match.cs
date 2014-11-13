@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CornerFlag.Data.Models.Entities;
-using CornerFlag.Data.Models.People;
-
-namespace CornerFlag.Data.Models
+﻿namespace CornerFlag.Data.Models
 {
+    using System;
+    using System.Collections.Generic;
+
+    using CornerFlag.Data.Models.Entities;
+    using CornerFlag.Data.Models.People;
+
     public class Match : DatabaseEntity
     {
         public Match()

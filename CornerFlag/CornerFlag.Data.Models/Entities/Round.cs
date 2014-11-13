@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CornerFlag.Data.Models.Entities
+﻿namespace CornerFlag.Data.Models.Entities
 {
+    using System.Collections.Generic;
+
     public class Round : DatabaseEntity
     {
         public Round()
@@ -17,8 +13,6 @@ namespace CornerFlag.Data.Models.Entities
 
         public virtual ICollection<Match> Games { get; set; }
 
-        public virtual Season Season { get; set; }
-
-        public bool IsCompleted { get; set; }        
+        public virtual Season Season { get; set; } 
     }
 }

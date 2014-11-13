@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CornerFlag.Data.Models;
-
-namespace CornerFlag.Data.Models.Entities
+﻿namespace CornerFlag.Data.Models.Entities
 {
+    using System.Collections.Generic;
+
     public class Country : NamedDatabaseEntry
     {
         public Country()

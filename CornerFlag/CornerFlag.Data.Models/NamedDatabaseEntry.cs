@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CornerFlag.Data.Models
+﻿namespace CornerFlag.Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class NamedDatabaseEntry : DatabaseEntity
     {
         private const int MINIMUM_NAME_LENGTH = 2;

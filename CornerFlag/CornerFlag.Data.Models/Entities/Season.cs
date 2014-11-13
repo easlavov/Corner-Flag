@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CornerFlag.Data.Models;
-using System.ComponentModel.DataAnnotations;
-
-namespace CornerFlag.Data.Models.Entities
+﻿namespace CornerFlag.Data.Models.Entities
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     public class Season : DatabaseEntity
     {
         public Season()
         {
             this.Rounds = new HashSet<Round>();
+            this.ParticipatingClubs = new HashSet<Club>();
         }
 
         [Range(1872, 3000)]
@@ -21,5 +17,7 @@ namespace CornerFlag.Data.Models.Entities
         public virtual Competition Competition { get; set; }
 
         public virtual ICollection<Round> Rounds { get; set; }
+
+        public virtual ICollection<Club> ParticipatingClubs { get; set; }
     }
 }

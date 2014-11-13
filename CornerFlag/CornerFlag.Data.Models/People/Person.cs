@@ -4,6 +4,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using CornerFlag.Common;
+    using CornerFlag.Data.Models.Entities;
 
     public abstract class Person : DatabaseEntity
     {
@@ -24,6 +25,8 @@
 
         [Required]
         [DateAttribute(-100, -6)]
-        public DateTime BirthDate { get; set; }        
+        public DateTime BirthDate { get; set; }
+
+        public virtual Country Country { get; set; }
     }
 }
