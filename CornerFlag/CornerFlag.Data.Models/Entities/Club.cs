@@ -12,7 +12,7 @@
         public Club()
         {
             this.Competitions = new HashSet<Competition>();
-            this.Team = new HashSet<Player>();
+            this.Teams = new HashSet<Team>();
             this.Games = new HashSet<Match>();
         }
 
@@ -24,8 +24,10 @@
 
         public virtual ICollection<Competition> Competitions { get; set; }
 
-        public virtual ICollection<Player> Team { get; set; }
+        public virtual ICollection<Team> Teams { get; set; }
 
         public virtual ICollection<Match> Games { get; set; }
+
+        public virtual ICollection<Season> Seasons { get; set; }
     }
 }

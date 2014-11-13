@@ -8,21 +8,25 @@
 
     public class Match : DatabaseEntity
     {
-        public Match()
-        {
-            this.HomeTeam = new HashSet<Player>();
-            this.AwayTeam = new HashSet<Player>();
-        }
+        //public Match()
+        //{
+        //    this.HomeTeam = new HashSet<Player>();
+        //    this.AwayTeam = new HashSet<Player>();
+        //}
 
         public DateTime Date { get; set; }
 
         public virtual Club HomeClub { get; set; }
 
-        public virtual ICollection<Player> HomeTeam { get; set; }
+        //public virtual ICollection<Player> HomeTeam { get; set; }
+
+        //public virtual Team HomeTeam { get; set; }
 
         public virtual Club AwayClub { get; set; }
         
-        public virtual ICollection<Player> AwayTeam { get; set; }
+        //public virtual ICollection<Player> AwayTeam { get; set; }
+
+        //public virtual Team AwayTeam { get; set; }
 
         public virtual Stadium Venue { get; set; }
 

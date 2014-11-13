@@ -64,11 +64,14 @@ namespace CornerFlag.Data.Migrations
                 var country = context.Countries.First(c => c.Clubs.Count < (COUNTRIES_COUNT * COMPETITIONS_COUNT));
                 club.Country = country;
                 var players = context.Players.Where(p => p.Club == null).Take(10);
+                var team = new Team();
                 foreach (var player in players)
                 {
-                    club.Team.Add(player);
+                    team.Players.Add(player);
                 }
 
+                context.Teams.Add(team);
+                club.Teams.Add(team);
                 country.Clubs.Add(club);
                 context.Clubs.AddOrUpdate(club);
                 context.SaveChanges();

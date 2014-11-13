@@ -24,6 +24,11 @@
             return new CornerFlagDbContext();
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
