@@ -16,13 +16,9 @@
 
         public DateTime Date { get; set; }
 
-        public int HomeClubId { get; set; }
-
         public virtual Club HomeClub { get; set; }
 
         public virtual ICollection<Player> HomeTeam { get; set; }
-
-        public int AwayClubId { get; set; }
 
         public virtual Club AwayClub { get; set; }
         

@@ -20,6 +20,8 @@
         [DateAttribute(-100, 0)]
         public DateTime DateFounded { get; set; }
 
+        public virtual Country Country { get; set; }
+
         public virtual ICollection<Competition> Competitions { get; set; }
 
         public virtual ICollection<Player> Team { get; set; }

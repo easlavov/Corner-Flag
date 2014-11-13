@@ -16,6 +16,6 @@ namespace CornerFlag.Data.Models.People
 
         public virtual Club Club { get; set; }
 
-        public ICollection<Player> Players { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
     }
 }
