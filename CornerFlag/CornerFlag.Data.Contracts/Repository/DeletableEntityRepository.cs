@@ -4,6 +4,7 @@
     using System.Data.Entity;
 
     using CornerFlag.Data.Contracts.Models;
+    using System;
 
     public class DeletableEntityRepository<T> : GenericRepository<T>, IDeletableEntityRepository<T>
         where T : class, IDeletableEntity
@@ -21,6 +22,18 @@
         public IQueryable<T> AllWithDeleted()
         {
             return base.All();
+        }
+
+        public override void Delete(T entity)
+        {
+            entity.IsDeleted = true;
+            entity.DeletedOn = DateTime.Now;
+            base.ChangeEntityState(entity, EntityState.Modified);
+        }
+
+        public void HardDelete(T entity)
+        {
+            base.Delete(entity);
         }
     }
 }
