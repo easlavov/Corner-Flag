@@ -10,7 +10,7 @@
         private const int MINIMUM_NAME_LENGTH = 2;
         private const int MAXIMUM_NAME_LENGTH = 20;
         private const string MIN_LENGTH_ERROR_MESSAGE = "Miniumum length is 2!";
-        private const string MAX_LENGTH_ERROR_MESSAGE = "Maximum length is 2!";
+        private const string MAX_LENGTH_ERROR_MESSAGE = "Maximum length is 20!";
         
         [Required(ErrorMessage="First Name is required!")]
         [MinLength(MINIMUM_NAME_LENGTH, ErrorMessage=MIN_LENGTH_ERROR_MESSAGE)]

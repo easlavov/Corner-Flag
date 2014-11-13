@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using CornerFlag.Web.Controllers;
 using CornerFlag.Web.Models;
+using CornerFlag.Data.Models.Entities;
 
 namespace CornerFlag.Web.Controllers
 {
@@ -38,6 +39,12 @@ namespace CornerFlag.Web.Controllers
             model.TeamName = id;
             model.Players = this.soccerData.GetPlayersById(id);
             return View(model);
+        }
+
+        private void Test()
+        {
+            var countrye = new Country();
+            
         }
     }
 }
