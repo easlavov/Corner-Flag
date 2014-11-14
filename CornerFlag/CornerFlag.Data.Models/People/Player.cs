@@ -11,8 +11,6 @@
             this.Teams = new HashSet<Team>();
         }
 
-        public Club Club { get; set; }
-
         public Position Position { get; set; }
 
         public virtual ICollection<Team> Teams { get; set; }
