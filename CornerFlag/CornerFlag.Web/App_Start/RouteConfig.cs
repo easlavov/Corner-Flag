@@ -16,7 +16,7 @@ namespace CornerFlag.Web
             routes.MapRoute(
                 name: "Competitions",
                 url: "competitions/{id}/{action}",
-                defaults: new { controller = "Competition", action = "All" }
+                defaults: new { controller = "Competitions", action = "All" }
             );
 
             routes.MapRoute(

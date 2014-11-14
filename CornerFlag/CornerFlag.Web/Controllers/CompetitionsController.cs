@@ -11,27 +11,23 @@ using CornerFlag.Data;
 
 namespace CornerFlag.Web.Controllers
 {
-    public class CompetitionController : BaseController
+    public class CompetitionsController : BaseController
     {
-        public CompetitionController(ICornerFlagData data)
+        public CompetitionsController(ICornerFlagData data)
             : base(data)
         {
         }
 
         public ActionResult All()
         {       
-            var comps = this.data.Competitions.All();
-            return View(comps);
+            var competitions = this.data.Competitions.All();
+            return View(competitions);
         }
 
         public ActionResult Details(int id)
         {
-            return View();
-        }
-
-        public ActionResult Table(string id)
-        {
-            return PartialView();
+            var competition = this.data.Competitions.GetById(id);
+            return View(competition);
         }
     }
 }
