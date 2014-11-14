@@ -77,6 +77,7 @@ namespace CornerFlag.Data.Migrations
                 var country = context.Countries.First(c => c.Clubs.Count < (COUNTRIES_COUNT * COMPETITIONS_COUNT));
                 club.Country = country;
                 var team = new Team();
+                team.Name = "First Team";
                 for (int j = 0; j < 10; j++)
                 {
                     team.Players.Add(players[currentPlayerIndex]);
@@ -118,6 +119,7 @@ namespace CornerFlag.Data.Migrations
                 player.BirthDate = generator.GetRandomDate(from, to);
                 player.FirstName = generator.GetString(2, 20);
                 player.LastName = generator.GetString(2, 20);
+                player.Position = GetPosition(i);
                 var countryId = generator.GetInt(1, 10);
                 player.Country = countries.First(c => c.Id == countryId);
                 context.Players.AddOrUpdate(player);
@@ -128,6 +130,31 @@ namespace CornerFlag.Data.Migrations
             }
 
             context.SaveChanges();
+        }
+
+        private Position GetPosition(int i)
+        {
+            switch (i % 10)
+            {
+                case 0:
+                    return Position.Goalkeeper;
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    return Position.Midfielder;
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                    return Position.Defender;
+                case 9:
+                    return Position.Forward;
+                default:
+                    break;
+            }
+
+            return Position.Midfielder;
         }
     }
 }

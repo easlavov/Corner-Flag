@@ -7,7 +7,7 @@ using CornerFlag.Data.Models.Entities;
 
 namespace CornerFlag.Data.Models.People
 {
-    public class Team : DatabaseEntity
+    public class Team : NamedDatabaseEntry
     {
         public Team()
         {
