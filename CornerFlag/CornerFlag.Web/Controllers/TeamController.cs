@@ -6,39 +6,34 @@ using System.Web.Mvc;
 using CornerFlag.Web.Controllers;
 using CornerFlag.Web.Models;
 using CornerFlag.Data.Models.Entities;
+using CornerFlag.Data;
 
 namespace CornerFlag.Web.Controllers
 {
     public class TeamController : BaseController
     {
+        public TeamController(ICornerFlagData data)
+            : base(data)
+        {
+
+        }
+
         // TODO: Should default to Fixtures. GetTeam() unreliable!
         public ActionResult Details(string id)
         {
-            var team = this.soccerData.GetTeam(id);
-            return View("TeamView", team);
+            
+            return View();
         }
 
         public ActionResult Fixtures(string id)
         {
-            // Getting last years fixtures to ensure a populated list
-            var to = DateTime.Now;
-            var from = to.AddYears(-1);
-            var fixtures = this.soccerData
-                               .GetFixturesByDateIntervalAndTeam(from, to, id).AsQueryable();
-            var model = new FixturesViewModel
-            {
-                TeamName = id,
-                Fixtures = fixtures
-            };
-            return View(model);
+            
+            return View();
         }
 
         public ActionResult Players(string id)
         {
-            var model = new TeamPlayersViewModel();
-            model.TeamName = id;
-            model.Players = this.soccerData.GetPlayersById(id);
-            return View(model);
+            return View();
         }
 
         private void Test()

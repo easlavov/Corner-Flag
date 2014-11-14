@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CornerFlag.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,15 @@ namespace CornerFlag.Web.Controllers
 {
     public class PlayerController : BaseController
     {
+        public PlayerController(ICornerFlagData data)
+            : base(data)
+        {
+
+        }
+
         public ActionResult Details(int id)
         {
-            var player = this.soccerData.GetPlayerById(id);
-            return View(player);
+            return View();
         }
     }
 }

@@ -2,17 +2,15 @@
 {
     using System.Web.Mvc;
 
-    using CornerFlag.Common;
-    using XMLSoccerCOM;
-    using CornerFlag.SoccerData;
+    using CornerFlag.Data;
 
     public class BaseController : Controller
     {
-        protected CachedSoccerData soccerData;
+        protected ICornerFlagData data;
 
-        public BaseController()
+        public BaseController(ICornerFlagData data)
         {
-            this.soccerData = new CachedSoccerData();
+            this.data = data;
         }
     }
 }

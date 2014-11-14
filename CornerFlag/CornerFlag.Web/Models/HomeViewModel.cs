@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using XMLSoccerCOM;
+using CornerFlag.Data.Models.Entities;
+using CornerFlag.Data.Models.People;
 
 namespace CornerFlag.Web.Models
 {
     public class HomeViewModel
     {
-        public HomeViewModel()
-        {
-            TopLeagues = new List<IList<TeamLeagueStanding>>();
-        }
+        public IQueryable<Competition> Competitions { get; set; }
 
-        public IEnumerable<IGrouping<string, Match>> TodayFixtures { get; set; }
+        public IQueryable<Club> Clubs { get; set; }
 
-        public IList<IList<TeamLeagueStanding>> TopLeagues { get; set; }
+        public IQueryable<Player> Players { get; set; }
     }
 }
