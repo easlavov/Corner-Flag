@@ -22,17 +22,6 @@
         public ActionResult Index()
         {
             var homeViewModel = new HomeViewModel();
-            //homeViewModel.TodayFixtures = this.data.GetLiveScoreByLeague(null).OrderByDescending(m => m.Date).GroupBy(m => m.League);
-            //homeViewModel.TodayFixtures = MockedSoccerData.MatchListRandom().OrderByDescending(m => m.Date).GroupBy(m => m.League);
-            //homeViewModel.TodayFixtures = this.data.GetLiveScoreByLeague(null).OrderByDescending(m => m.Date).GroupBy(m => m.League);
-            //homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
-            //homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
-            //homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
-            //homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
-            //homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
-            //homeViewModel.TopLeagues.Add(MockedSoccerData.LeagueStandingRandom().OrderByDescending(x => x.Points).ToList());
-
-            //homeViewModel.TopLeagues.Add(this.data.GetLeagueStandingsBySeason("3", 2014));
             homeViewModel.Competitions = this.data.Competitions.All();
             homeViewModel.Clubs = this.data.Clubs.All();
             homeViewModel.Players = this.data.Players.All();

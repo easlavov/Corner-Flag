@@ -30,6 +30,7 @@ namespace CornerFlag.Data.Migrations
             this.SeedPlayers(context);
             this.SeedClubs(context);
             this.SeedCompetitions(context);
+            this.SeedCompsClubsRelations(context);
 
             context.Configuration.AutoDetectChangesEnabled = true;
             //  This method will be called after migrating to the latest version.
@@ -44,6 +45,26 @@ namespace CornerFlag.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+        }
+
+        private void SeedCompsClubsRelations(CornerFlagDbContext context)
+        {
+            var countries = context.Countries.ToList();
+            foreach (var country in countries)
+            {
+                var competitions = context.Competitions.Where(comp => comp.Country.Id == country.Id).ToList();
+                foreach (var comp in competitions)
+                {
+                    var c = country;
+                    var avaliableClubs = context.Clubs.Where(cl => cl.Country.Id == c.Id && cl.Competitions.Count == 0).ToList();
+                    foreach (var club in avaliableClubs)
+                    {
+                        club.Competitions.Add(comp);
+                        comp.Clubs.Add(club);
+                        context.SaveChanges();
+                    }
+                }
+            }
         }
 
         private void SeedCompetitions(CornerFlagDbContext context)

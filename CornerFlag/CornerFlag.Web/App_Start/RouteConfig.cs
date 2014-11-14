@@ -14,9 +14,9 @@ namespace CornerFlag.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Leagues",
-                url: "Leagues/{id}/{action}",
-                defaults: new { controller = "League", action = "Details" }
+                name: "Competitions",
+                url: "competitions/{id}/{action}",
+                defaults: new { controller = "Competition", action = "All" }
             );
 
             routes.MapRoute(

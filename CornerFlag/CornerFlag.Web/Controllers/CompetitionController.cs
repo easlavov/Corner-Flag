@@ -11,18 +11,17 @@ using CornerFlag.Data;
 
 namespace CornerFlag.Web.Controllers
 {
-    public class LeagueController : BaseController
+    public class CompetitionController : BaseController
     {
-        public LeagueController(ICornerFlagData data)
+        public CompetitionController(ICornerFlagData data)
             : base(data)
         {
-
         }
 
         public ActionResult All()
-        {           
-            //var leagues = MockedSoccerData.GetAllLeagues().OrderBy(x => x.Id).GroupBy(x => x.Country);
-            return View();
+        {       
+            var comps = this.data.Competitions.All();
+            return View(comps);
         }
 
         public ActionResult Details(int id)

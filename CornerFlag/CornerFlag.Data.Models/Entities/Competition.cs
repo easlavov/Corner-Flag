@@ -8,11 +8,14 @@
         public Competition()
         {
             this.Seasons = new HashSet<Season>();
+            this.Clubs = new HashSet<Club>();
         }
 
-        public Country Country { get; set; }
+        public virtual Country Country { get; set; }
 
         public virtual ICollection<Season> Seasons { get; set; }
+
+        public virtual ICollection<Club> Clubs { get; set; }
 
         public ICollection<Standing> GetLeagueStandings()
         {

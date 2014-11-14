@@ -1,0 +1,25 @@
+﻿@using CornerFlag.Data.Models.Entities
+@{
+    ViewBag.Title = "Competitions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IQueryable<Competition>
+<div class="jumbotron">
+    <h1>Competitions</h1>
+    <div class="container">
+        @foreach (var country in Model.GroupBy(c => c.Country))
+        {
+            <h2>@country.First().Country.Name</h2>
+            <ul class="list-group">
+                @foreach(var comp in country)
+                {
+                    <li class="list-group-item">
+                        <h2>@comp.Name</h2>                        
+                        <a href="~/league/@comp.Id" class="btn btn-info">Details</a>
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+</div>
