@@ -1,0 +1,29 @@
+﻿@using CornerFlag.Data.Models.Entities
+@model Club
+<tr>
+    <td>@Model.Name</td>
+    <td>@Model.DateFounded.Year</td>
+    <td>
+        <ul class="list-group">
+            @foreach (var competition in Model.Competitions)
+            {
+                <li class="list-group-item">
+                    <a href="~/competitions/@competition.Id">@competition.Name</a>
+                </li>
+            }
+        </ul>
+    </td>
+    <td>
+        <ul class="list-group">
+            @foreach (var team in Model.Teams)
+            {
+                <li class="list-group-item">
+                    <a href="~/teams/@team.Id">@team.Name</a>
+                </li>
+            }
+        </ul>
+    </td>
+    <td>
+        <a href="~/Clubs/@Model.Id/Details" class="btn btn-info">Details</a>
+    </td>
+</tr>

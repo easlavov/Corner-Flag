@@ -7,9 +7,9 @@ using System.Web.Mvc;
 
 namespace CornerFlag.Web.Controllers
 {
-    public class PlayerController : BaseController
+    public class PlayersController : BaseController
     {
-        public PlayerController(ICornerFlagData data)
+        public PlayersController(ICornerFlagData data)
             : base(data)
         {
 

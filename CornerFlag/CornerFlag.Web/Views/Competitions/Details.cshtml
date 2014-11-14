@@ -1,8 +1,26 @@
 ﻿@using CornerFlag.Data.Models.Entities
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Competitions/_Layout.cshtml";
 }
 @model Competition
 
-<h2>Details</h2>
+<h1>@Model.Name - @Model.Country.Name</h1>
+<h2>Clubs</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Year Founded</th>
+            <th>Competitions</th>
+            <th>Teams</th>
+            <th>Detail</th>
+        </tr>
+    </thead>
+    <tbody class="alternate-color-table">
+        @foreach (var club in Model.Clubs)
+        {
+            Html.RenderPartial("_ClubInfoTableRow", club);
+        }
+    </tbody>    
+</table>

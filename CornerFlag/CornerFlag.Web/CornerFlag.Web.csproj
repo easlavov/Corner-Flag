@@ -189,10 +189,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ClubsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CompetitionsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PlayerController.cs" />
+    <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -949,8 +950,6 @@
     <Content Include="Views\Team\Players.cshtml" />
     <Content Include="Views\Team\_ViewStart.cshtml" />
     <Content Include="Views\Team\_TeamMenu.cshtml" />
-    <Content Include="Views\Player\_PlayerMenu.cshtml" />
-    <Content Include="Views\Player\Details.cshtml" />
     <Content Include="Views\Team\Fixtures.cshtml" />
     <Content Include="Scripts\kendo\jquery.min.map" />
     <Content Include="Scripts\kendo\kendo.all.min.js.map" />
@@ -1051,6 +1050,10 @@
     <Content Include="Scripts\kendo\kendo.window.min.js.map" />
     <Content Include="Views\Competitions\Details.cshtml" />
     <Content Include="Views\Competitions\_Layout.cshtml" />
+    <Content Include="Views\Clubs\All.cshtml" />
+    <Content Include="Views\Shared\_ClubInfoTableRow.cshtml" />
+    <Content Include="Views\Clubs\Details.cshtml" />
+    <Content Include="Views\Shared\_CompetitionListItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

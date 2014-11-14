@@ -13,10 +13,7 @@
         <ul class="list-group">
             @foreach (var comp in country)
             {
-                <li class="list-group-item">
-                    <h2>@comp.Name</h2>
-                    <a href="~/league/@comp.Id" class="btn btn-info">Details</a>
-                </li>
+                    Html.RenderPartial("_CompetitionListItem", comp);
             }
         </ul>
     }
