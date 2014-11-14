@@ -29,7 +29,7 @@ namespace CornerFlag.Data.Migrations
             this.SeedCountries(context);
             this.SeedPlayers(context);
             this.SeedClubs(context);
-            //this.SeedCompetitions(context);
+            this.SeedCompetitions(context);
 
             context.Configuration.AutoDetectChangesEnabled = true;
             //  This method will be called after migrating to the latest version.
@@ -48,7 +48,18 @@ namespace CornerFlag.Data.Migrations
 
         private void SeedCompetitions(CornerFlagDbContext context)
         {
-            throw new NotImplementedException();
+            var generator = new RandomDataGenerator();
+            for (int i = 0; i < COMPETITIONS_COUNT; i++)
+            {
+                var competition = new Competition();
+                competition.Name = generator.GetString(2, 20);
+                var country = context.Countries.First(c => c.Competitions.Count < COUNTRIES_COUNT);
+                competition.Country = country;
+
+                country.Competitions.Add(competition);
+                context.Competitions.Add(competition);
+                context.SaveChanges();
+            }
         }
 
         private void SeedClubs(CornerFlagDbContext context)
@@ -56,6 +67,8 @@ namespace CornerFlag.Data.Migrations
             var generator = new RandomDataGenerator();
             var from = DateTime.Now.AddYears(-40);
             var to = DateTime.Now.AddYears(-10);
+            var currentPlayerIndex = 0;
+            var players = context.Players.ToList();
             for (int i = 0; i < CLUBS_COUNT; i++)
             {
                 var club = new Club();
@@ -63,11 +76,11 @@ namespace CornerFlag.Data.Migrations
                 club.DateFounded = generator.GetRandomDate(from, to);
                 var country = context.Countries.First(c => c.Clubs.Count < (COUNTRIES_COUNT * COMPETITIONS_COUNT));
                 club.Country = country;
-                var players = context.Players.Where(p => p.Club == null).Take(10);
                 var team = new Team();
-                foreach (var player in players)
+                for (int j = 0; j < 10; j++)
                 {
-                    team.Players.Add(player);
+                    team.Players.Add(players[currentPlayerIndex]);
+                    currentPlayerIndex++;
                 }
 
                 context.Teams.Add(team);
