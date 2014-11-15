@@ -1,0 +1,34 @@
+﻿@using CornerFlag.Data.Models.People
+@model IEnumerable<Team>
+@{
+    ViewBag.Title = "Teams";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Teams</h1>
+<div class="jumbotron">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Club</th>
+                <th>Name</th>
+                <th>Players count</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody class="alternate-color-table">
+            @foreach (var team in Model)
+            {
+                <tr>
+                    <td>@team.Club.Name</td>
+                    <td>@team.Name</td>
+                    <td>@team.Players.Count</td>
+                    <td>
+                        <a href="~/Teams/@team.Id/Details" class="btn btn-info">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

@@ -13,6 +13,6 @@ namespace CornerFlag.Web.Models
 
         public IQueryable<Club> Clubs { get; set; }
 
-        public IQueryable<Player> Players { get; set; }
+        public IQueryable<Team> Teams { get; set; }
     }
 }

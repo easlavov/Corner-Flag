@@ -24,7 +24,7 @@
             var homeViewModel = new HomeViewModel();
             homeViewModel.Competitions = this.data.Competitions.All();
             homeViewModel.Clubs = this.data.Clubs.All();
-            homeViewModel.Players = this.data.Players.All();
+            homeViewModel.Teams = this.data.Teams.All();
 
             return View(homeViewModel);
         }

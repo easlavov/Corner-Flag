@@ -17,7 +17,8 @@ namespace CornerFlag.Web.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            var player = this.data.Players.GetById(id);
+            return View(player);
         }
     }
 }

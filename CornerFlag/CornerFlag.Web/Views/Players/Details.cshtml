@@ -1,0 +1,21 @@
+﻿@using CornerFlag.Data.Models.People
+@model Player
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1>@string.Format("{0} {1}", Model.FirstName, Model.LastName)</h1>
+    <h2>@Model.Country.Name</h2>
+    <h2>Age: @(Model.Age)</h2>
+    <h2>@Model.Position</h2>
+    <ul class="list-group">
+        @foreach (var team in Model.Teams)
+        {
+            <li class="list-group-item">
+                <a href="~/Teams/@team.Id/Details">@team.Name</a>
+            </li>
+        }
+    </ul>
+</div>
