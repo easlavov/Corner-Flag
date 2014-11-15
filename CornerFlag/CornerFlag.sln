@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CornerFlag.Common", "Corner
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CornerFlag.SoccerData", "CornerFlag.SoccerData\CornerFlag.SoccerData.csproj", "{C3959D5C-F95D-4947-BD7D-29837F0A6BC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CornerFlag.Web.Infrastructure", "CornerFlag.Web.Infrastructure\CornerFlag.Web.Infrastructure.csproj", "{A7732447-0784-46DE-B634-CFFA75A9AAF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{C3959D5C-F95D-4947-BD7D-29837F0A6BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3959D5C-F95D-4947-BD7D-29837F0A6BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3959D5C-F95D-4947-BD7D-29837F0A6BC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7732447-0784-46DE-B634-CFFA75A9AAF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7732447-0784-46DE-B634-CFFA75A9AAF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7732447-0784-46DE-B634-CFFA75A9AAF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7732447-0784-46DE-B634-CFFA75A9AAF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
