@@ -28,13 +28,13 @@ namespace CornerFlag.Web
             routes.MapRoute(
                 name: "Teams",
                 url: "Teams/{id}/{action}",
-                defaults: new { controller = "Team", action = "Fixtures" }
+                defaults: new { controller = "Teams", action = "All" }
             );
 
             routes.MapRoute(
                 name: "Players",
                 url: "Players/{id}/{action}",
-                defaults: new { controller = "Player", action = "Details" }
+                defaults: new { controller = "Players", action = "All" }
             );
 
             routes.MapRoute(
