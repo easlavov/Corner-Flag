@@ -39,12 +39,15 @@ namespace CornerFlag.Web
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/unobtrusive").Include(
+                "~/Scripts/jquery.unobtrusive-ajax.js"));
         }
 
         private static void RegisterStyles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/kendo").Include(
-                        "~/Content/kendo/kendo.common.min.css",
+                        //"~/Content/kendo/kendo.common.min.css",
                         "~/Content/kendo/kendo.common-bootstrap.min.css",
                         "~/Content/kendo/kendo.default.min.css"));
 
