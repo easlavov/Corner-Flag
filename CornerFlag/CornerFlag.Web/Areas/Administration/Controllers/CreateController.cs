@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CornerFlag.Data;
 using CornerFlag.Data.Models.Entities;
+using CornerFlag.Data.Models.People;
 using CornerFlag.Web.Areas.Administration.InputModels;
 using CornerFlag.Web.Controllers;
 using System;
@@ -42,9 +43,7 @@ namespace CornerFlag.Web.Areas.Administration.Controllers
         [HttpGet]
         public ActionResult Club()
         {
-            var countries = this.data.Countries.All();
-            var list = new SelectList(countries, "Id", "Name");
-            this.ViewBag.Countries = list;
+            this.ViewBag.Countries = GetCountriesList();
             return View();
         }
 
@@ -61,6 +60,35 @@ namespace CornerFlag.Web.Areas.Administration.Controllers
             }
 
             return RedirectToAction("Club");
+        }
+
+        [HttpGet]
+        public ActionResult Player()
+        {
+            this.ViewBag.Countries = GetCountriesList();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Player(PlayerInputModel input)
+        {
+            if (this.ModelState.IsValid)
+            {
+                Mapper.CreateMap<PlayerInputModel, Player>();
+                var player = Mapper.Map<Player>(input);
+                this.data.Players.Add(player);
+                this.data.SaveChanges();
+            }
+
+            return RedirectToAction("Player");
+        }
+
+        private SelectList GetCountriesList()
+        {
+            var countries = this.data.Countries.All();
+            var countriesList = new SelectList(countries, "Id", "Name");
+            return countriesList;
         }
     }
 }

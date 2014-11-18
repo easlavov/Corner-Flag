@@ -17,7 +17,7 @@
             : base("DefaultConnection", throwIfV1Schema: false)
         {
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<CornerFlagDbContext, Configuration>());
-            Database.SetInitializer(new CreateDatabaseIfNotExists<CornerFlagDbContext>());
+            //Database.SetInitializer(new CreateDatabaseIfNotExists<CornerFlagDbContext>());
         }
 
         public static CornerFlagDbContext Create()

@@ -6,10 +6,10 @@
 
 <h2>Club</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>ClubInputModel</h4>
         <hr />
@@ -48,4 +48,7 @@
 
 @section scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $('#DateFounded').removeAttr("data-val-date");
+    </script>
 }

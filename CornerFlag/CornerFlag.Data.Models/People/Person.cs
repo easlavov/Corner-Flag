@@ -28,6 +28,8 @@
         [DateAttribute(-100, -6)]
         public DateTime BirthDate { get; set; }
 
+        public int CountryId { get; set; }
+
         public virtual Country Country { get; set; }
 
         [NotMapped]
