@@ -22,7 +22,7 @@
 
             LoadStandardMappings(types);
 
-            LoadCustomMappings(types);
+            LoadCustomMappings(types);            
         }
 
         private static void LoadStandardMappings(IEnumerable<Type> types)

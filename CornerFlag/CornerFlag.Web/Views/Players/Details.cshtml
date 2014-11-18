@@ -1,4 +1,7 @@
 ﻿@using CornerFlag.Data.Models.People
+@using CornerFlag.Web.Models;
+@using AutoMapper.QueryableExtensions;
+
 @model Player
 @{
     ViewBag.Title = "Details";
@@ -19,3 +22,15 @@
         }
     </ul>
 </div>
+
+<div id="comments-div" class="container">
+    @foreach (var comment in Model.Comments.AsQueryable().Project().To<CommentViewModel>())
+    {
+        @Html.Partial("_CommentView", comment)
+    }    
+</div>
+
+@if (this.User.Identity.IsAuthenticated)
+{
+    @Html.Partial("_CommentForm", new PostCommentViewModel(Model.Id))
+}
