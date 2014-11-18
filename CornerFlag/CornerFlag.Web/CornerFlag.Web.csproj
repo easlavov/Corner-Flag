@@ -196,8 +196,10 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\CreateController.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ManageController.cs" />
     <Compile Include="Areas\Administration\InputModels\ClubInputModel.cs" />
     <Compile Include="Areas\Administration\InputModels\PlayerInputModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\CountryViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ClubsController.cs" />
@@ -457,6 +459,7 @@
     <Content Include="Areas\Administration\Views\Create\Country.cshtml" />
     <Content Include="Areas\Administration\Views\Create\Club.cshtml" />
     <Content Include="Areas\Administration\Views\Create\Player.cshtml" />
+    <Content Include="Areas\Administration\Views\Manage\Countries.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

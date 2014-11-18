@@ -1,0 +1,39 @@
+﻿@using CornerFlag.Web.Areas.Administration.ViewModels
+@{
+    ViewBag.Title = "Manage Countries";
+}
+
+<h2>Manage Countries</h2>
+
+@(Html.Kendo()
+    .Grid<CountryViewModel>()
+    .Name("CountriesGrid")
+            .Columns(columns =>
+            {
+                columns.Bound(c => c.Id);
+                columns.Bound(c => c.Name);
+                columns.Bound(c => c.CreatedOn);
+                columns.Bound(c => c.ModifiedOn);
+                columns.Bound(c => c.IsDeleted);
+                columns.Command(commands =>
+                {
+                    commands.Edit();
+                    commands.Destroy();
+                }).Title("Commands");
+            })
+                .Editable(editable => editable.Mode(GridEditMode.InLine))
+                .Sortable()
+                .Pageable()
+                .DataSource(dataSource =>
+                        dataSource.Ajax().Model(model =>
+                        {
+                            model.Id(country => country.Id);
+                            model.Field(country => country.Id).Editable(false);
+                            model.Field(country => country.CreatedOn).Editable(false);
+                            model.Field(country => country.IsDeleted).Editable(false);
+                            model.Field(country => country.ModifiedOn).Editable(false);
+                        })
+                        .Read(read => read.Action("Countries_Read", "Manage"))
+                        .Update(update => update.Action("Edit_Country", "Manage"))
+                        .Destroy(destroy => destroy.Action("Destroy_Country", "Manage"))))
+            
