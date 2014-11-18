@@ -1,5 +1,7 @@
-﻿using CornerFlag.Data;
+﻿using AutoMapper;
+using CornerFlag.Data;
 using CornerFlag.Data.Models.Entities;
+using CornerFlag.Web.Areas.Administration.InputModels;
 using CornerFlag.Web.Controllers;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,7 @@ using System.Web.Mvc;
 
 namespace CornerFlag.Web.Areas.Administration.Controllers
 {
-    [Authorize(Roles="Admin")]
+    //[Authorize(Roles="Admin")]
     public class CreateController : BaseController
     {
         public CreateController(ICornerFlagData data)
@@ -41,24 +43,19 @@ namespace CornerFlag.Web.Areas.Administration.Controllers
         public ActionResult Club()
         {
             var countries = this.data.Countries.All();
-            this.ViewBag.Countries = countries.Select(
-                                                x => new SelectListItem() 
-                                                {
-                                                    Text = x.Name,
-                                                    Value = x.Id.ToString()
-                                                });
-            //var countriesSelectList = new SelectList(countries, "Id", "Name") as IEnumerable<SelectListItem>;
-            //this.ViewBag.Countries = countriesSelectList;
+            var list = new SelectList(countries, "Id", "Name");
+            this.ViewBag.Countries = list;
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Club(Club model)
+        public ActionResult Club(ClubInputModel input)
         {
             if (this.ModelState.IsValid)
             {
-                var club = model;
+                Mapper.CreateMap<ClubInputModel, Club>();
+                var club = Mapper.Map<Club>(input);
                 this.data.Clubs.Add(club);
                 this.data.SaveChanges();
             }
